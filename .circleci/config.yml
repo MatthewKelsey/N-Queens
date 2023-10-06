@@ -1,0 +1,16 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  build:
+    executor:
+      name: node/default
+    resource_class: medium
+    steps:
+      - checkout
+      - run: npm install
+      - run: mkdir junit
+      - run:
+          command: npm run test
