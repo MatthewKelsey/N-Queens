@@ -20,7 +20,7 @@ if (size ===0 ){
     //exit if no spaces left
 
 
-    if (boardArray == 0) {
+    if (boardArray == 0 ) {
       solutions.push([...currentAttempt])
      
       currentAttempt.pop();
@@ -44,13 +44,13 @@ if (size ===0 ){
       currentAttempt.push(currentPosition);
       // determine safeSpaces left on board
       let safeSpace = boardArray.filter((item) => {
-        return item[0] !== currentPosition[0] && item[1] !== currentPosition[1];
+        return item[0] !== currentPosition[0] && item[1] !== currentPosition[1] && (item[0]- item[1])!==(currentPosition[0] - currentPosition[1]) && (item[0]+ item[1]) !== (currentPosition[0] + currentPosition[1])
       });
         placePiece(safeSpace);
     }
   }
   placePiece(board);
-  return solutions.length
+  return solutions
 }
 
 
